@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="../models/car.js"></script>
+        <script src="../models/wheel.js"></script>
+        <script src="../controllers/controller.js"></script>
+         <!--BOOTSTRAP THEME-->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <style>
+            p{
+                color:red;
+                margin: 2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            #create-wheel-form{
+                display: none;
+            }
+        </style>
+        </head>
+        <body>
+            <div class="container">
+                <!--APP-->
+                <div id="create-car-form" class="row pt-5">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header text-center">
+                                <h4 class="display-4">Crea tu coche</h4>
+                            </div>
+                            <form action="" class="card-body d-flex flex-column align-content-center" id="product-form">
+                                <div class="form-group">
+                                    <input type="text" id="brand"  placeholder="Inserta Marca" class="form-control text-center">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="plate" name="plate" placeholder="Inserta Matricula" class="form-control text-center">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="color" class="form-control text-center" name="color" placeholder="Inserta Color">
+                                </div>
+                                <div class="col-12">
+                                    <input  type="button" value="Crear" class="btn btn-primary btn-block " onclick="createCar()">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-8" id="product-list"></div>
+                </div>
+            </div>
+            <div class="container" >
+                <div class="pt-4">
+                    <div class="col-12 " id="create-wheel-form">
+                        <div class="card d-flex">
+                            <div class="header text-center">
+                                <h4 class="display-4">Crea tus ruedas</h4>
+                            </div>
+                            <form action="" class="card-body col-12 flex-wrap d-flex" id="product-form">
+                                <div class="form-group col-6">
+                                    <input type="text" id="wheel1" placeholder="Inserta Rueda 1" class="form-control">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="number" id="dlc1" placeholder="Inserta Diametro 1" class="form-control" step="0.01">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="text" id="wheel2" placeholder="Inserta Rueda 2" class="form-control">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="number" id="dlc2" placeholder="Inserta Diametro 2" class="form-control" step="0.01">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="text" id="wheel3" placeholder="Inserta Rueda 3" class="form-control">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="number" id="dlc3" placeholder="Inserta Diametro 3" class="form-control" step="0.01">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="text" id="wheel4" placeholder="Inserta Rueda 4" class="form-control">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="number" id="dlc4" placeholder="Inserta Diametro 4" class="form-control" step="0.01">
+                                </div>
+                                <div class="col-12">
+                                    <input  type="button" value="Crear" class="btn btn-primary btn-block" onclick="createWheel()">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-8" id="product-list"></div>
+                </div>
+            </div>
+            </div>
+            <div id="infocar">
+                
+            </div>
+            <p id="infowheel">
+                <p id="infowheel1"></p>
+            </p>
+        </body>
+</html>        
