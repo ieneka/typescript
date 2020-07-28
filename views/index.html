@@ -22,7 +22,7 @@
             <div class="container">
                 <!--APP-->
                 <div id="create-car-form" class="row pt-5">
-                    <div class="col-md-4">
+                    <div >
                         <div class="card">
                             <div class="header text-center">
                                 <h4 class="display-4">Crea tu coche</h4>
@@ -55,28 +55,28 @@
                             </div>
                             <form action="" class="card-body col-12 flex-wrap d-flex" id="product-form">
                                 <div class="form-group col-6">
-                                    <input type="text" id="wheel1" placeholder="Inserta Rueda 1" class="form-control">
+                                    <input type="text" id="brand1" placeholder="Inserta Rueda 1" class="form-control">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="number" id="dlc1" placeholder="Inserta Diametro 1" class="form-control" step="0.01">
+                                    <input type="number" id="diameter1" placeholder="Inserta Diametro 1" class="form-control" step="0.01">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="text" id="wheel2" placeholder="Inserta Rueda 2" class="form-control">
+                                    <input type="text" id="brand2" placeholder="Inserta Rueda 2" class="form-control">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="number" id="dlc2" placeholder="Inserta Diametro 2" class="form-control" step="0.01">
+                                    <input type="number" id="diameter2" placeholder="Inserta Diametro 2" class="form-control" step="0.01">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="text" id="wheel3" placeholder="Inserta Rueda 3" class="form-control">
+                                    <input type="text" id="brand3" placeholder="Inserta Rueda 3" class="form-control">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="number" id="dlc3" placeholder="Inserta Diametro 3" class="form-control" step="0.01">
+                                    <input type="number" id="diameter3" placeholder="Inserta Diametro 3" class="form-control" step="0.01">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="text" id="wheel4" placeholder="Inserta Rueda 4" class="form-control">
+                                    <input type="text" id="brand4" placeholder="Inserta Rueda 4" class="form-control">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="number" id="dlc4" placeholder="Inserta Diametro 4" class="form-control" step="0.01">
+                                    <input type="number" id="diameter4" placeholder="Inserta Diametro 4" class="form-control" step="0.01">
                                 </div>
                                 <div class="col-12">
                                     <input  type="button" value="Crear" class="btn btn-primary btn-block" onclick="createWheel()">
@@ -88,11 +88,20 @@
                 </div>
             </div>
             </div>
-            <div id="infocar">
+            <div class="container">
+                <h1 class="display-4 bg-info w-100 text-left" id="infocar"></h1>
+                <h2 class="display-4 bg-info w-100 text-left" id="infocar1">
+                    
+                </h2>
+            </div>
+            <div class="container">
+                <h1 class="display-4 bg-success w-100 text-left" id="infowheel">
+                </h1>
+                <h2 id="infowheel1" class="text-left bg-success display-4 w-100"></h2>
+                <h2 id="infowheel2" class="text-left bg-success display-4 w-100"></h2>
+                <h2 id="infowheel3" class="text-left bg-success display-4 w-100"></h2>
+                <h2 id="infowheel4" class="text-left bg-success display-4 w-100"></h2>
                 
             </div>
-            <p id="infowheel">
-                <p id="infowheel1"></p>
-            </p>
         </body>
 </html>        

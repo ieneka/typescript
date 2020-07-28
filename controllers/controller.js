@@ -1,7 +1,7 @@
 "use strict";
 var car;
 function createCar() {
-    var plate = document.getElementById("plate").value; // contingut inputs cotxe
+    var plate = document.getElementById("plate").value;
     var color = document.getElementById("color").value;
     var brand = document.getElementById("brand").value;
     var expresion = new RegExp("^[0-9]{4}[A-Z]{3}$");
@@ -13,7 +13,10 @@ function createCar() {
         alert("La matricula es incorrecta - 1234BKL");
     }
     else {
-        document.getElementById("infocar").innerHTML("COCHE: \n Marca: " + brand + " \n Matricula: " + plate + " \n Color " + color);
+        var infocar = document.getElementById('infocar');
+        infocar.innerHTML = "COCHE: ";
+        var infocar1 = document.getElementById('infocar1');
+        infocar1.innerHTML = "Marca: " + brand + "<br/ > Matricula: " + plate + " <br/ > Color: " + color;
         showWheelForm();
     }
 }
@@ -23,19 +26,31 @@ function showWheelForm() {
     carForm.style.display = "none";
     carWheel.style.display = "block";
 }
-function createWheel(brand, diameter) {
-    var wheel = new Wheel(diameter, brand);
+function createWheel() {
+    var contadorRuedas = 0;
     for (var i = 1; i <= 4; i++) {
-        document.getElementById("wheel" + i);
-        document.getElementById("brand" + i);
-        if (diameter < 0.2 || diameter > 2) {
-            alert("Las medidas de la rueda" + i, "son incorrectas => 0.2 - 2");
+        var brand = document.getElementById("brand" + i);
+        var diameter = document.getElementById("diameter" + i);
+        if (brand.value === "" || diameter.value == "") {
+            alert("Todos los campos son obligatorios");
         }
-        else if (diameter == null) {
-            alert("Es obligatorio rellenar las medidas");
+        else if (Number(diameter.value) < 0 || Number(diameter.value) > 2) {
+            alert("La medida no es compatible, error en la rueda: " + i);
         }
         else {
-            console.log("RUEDAS: \n Marca: " + brand + " Diametro: " + diameter);
+            contadorRuedas++;
         }
+    }
+    if (contadorRuedas == 4) {
+        var infowheel = document.getElementById('infowheel');
+        infowheel.innerHTML = "RUEDAS:";
+        for (var i = 1; i <= 4; i++) {
+            var brand = document.getElementById("brand" + i);
+            var diameter = document.getElementById("diameter" + i);
+            var infowheel_1 = document.getElementById('infowheel' + i);
+            infowheel_1.innerHTML = i + " Marca: " + brand.value + " Diametro: " + diameter.value;
+        }
+    }
+    else {
     }
 }

@@ -2,7 +2,7 @@
 let car : Car;
 
 function createCar() {
-    var plate = (document.getElementById("plate") as HTMLInputElement).value; // contingut inputs cotxe
+    var plate = (document.getElementById("plate") as HTMLInputElement).value; 
     var color = (document.getElementById("color") as HTMLInputElement).value;
     var brand = (document.getElementById("brand") as HTMLInputElement).value;
     var expresion = new RegExp("^[0-9]{4}[A-Z]{3}$");
@@ -16,7 +16,12 @@ function createCar() {
         alert("La matricula es incorrecta - 1234BKL");
     }
     else{
-        document.getElementById("infocar").innerHTML(`COCHE: \n Marca: ${brand} \n Matricula: ${plate} \n Color ${color}`);
+        
+        const infocar: HTMLElement = document.getElementById('infocar') as HTMLElement
+        infocar.innerHTML = "COCHE: ";
+        const infocar1: HTMLElement = document.getElementById('infocar1') as HTMLElement
+        infocar1.innerHTML = "Marca: " + brand + "<br/ > Matricula: " + plate + " <br/ > Color: " + color;
+
 
         showWheelForm();
     }
@@ -29,22 +34,36 @@ function showWheelForm() {
     carWheel.style.display = "block";
 }
 
-function createWheel(brand : string, diameter : number){
-    var wheel = new Wheel(diameter, brand);
+function createWheel(){
+    let contadorRuedas = 0;
     for(var i=1; i<=4; i++) {
-        document.getElementById("wheel" + i) as HTMLInputElement;
-        document.getElementById("brand" + i) as HTMLInputElement;
-
-        if(diameter < 0.2 || diameter > 2){
-            alert("Las medidas de la rueda" + i "son incorrectas => 0.2 - 2");
     
-        }else if(diameter == null){
-            alert("Es obligatorio rellenar las medidas");
+        var brand = document.getElementById("brand" + i) as HTMLInputElement;
+        var diameter = document.getElementById("diameter" + i) as HTMLInputElement;
+        if(brand.value==="" || diameter.value==""){
+            alert("Todos los campos son obligatorios")
+        }else if(Number(diameter.value) < 0 || Number(diameter.value) > 2){
+            alert("La medida no es compatible, error en la rueda: " + i )
         }
         else{
-            console.log(`RUEDAS: \n Marca: ${brand} Diametro: ${diameter}`);
+            contadorRuedas ++;
+    } }
+
+    if(contadorRuedas == 4){
+
+        const infowheel: HTMLElement = document.getElementById('infowheel') as HTMLElement
+        infowheel.innerHTML = "RUEDAS:" ;
+
+        for(var i=1; i<=4; i++){
+        var brand = document.getElementById("brand" + i) as HTMLInputElement;
+        var diameter = document.getElementById("diameter" + i) as HTMLInputElement;
+        
+        const infowheel: HTMLElement = document.getElementById('infowheel' + i) as HTMLElement
+        infowheel.innerHTML = i +" Marca: " + brand.value + " Diametro: " + diameter.value;
         }
-    } 
-    
+    }
+    else{
+
+    }
    
 }
