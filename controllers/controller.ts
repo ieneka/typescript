@@ -1,12 +1,13 @@
 
 let car : Car;
 
+
 function createCar() {
     var plate = (document.getElementById("plate") as HTMLInputElement).value; 
     var color = (document.getElementById("color") as HTMLInputElement).value;
     var brand = (document.getElementById("brand") as HTMLInputElement).value;
     var expresion = new RegExp("^[0-9]{4}[A-Z]{3}$");
-    var car = new Car(brand, plate, color);
+    
     
     
     if(plate=="" || brand=="" || color==""){
@@ -21,11 +22,12 @@ function createCar() {
         infocar.innerHTML = "COCHE: ";
         const infocar1: HTMLElement = document.getElementById('infocar1') as HTMLElement
         infocar1.innerHTML = "Marca: " + brand + "<br/ > Matricula: " + plate + " <br/ > Color: " + color;
-
+        car = new Car(brand, plate, color);
 
         showWheelForm();
     }
 }
+
  
 function showWheelForm() {
     let carForm = <HTMLInputElement>document.getElementById("create-car-form");
@@ -36,33 +38,42 @@ function showWheelForm() {
 
 function createWheel(){
     let contadorRuedas = 0;
+     
     for(var i=1; i<=4; i++) {
-    
-        var brand = document.getElementById("brand" + i) as HTMLInputElement;
-        var diameter = document.getElementById("diameter" + i) as HTMLInputElement;
-        if(brand.value==="" || diameter.value==""){
+        var brand = (document.getElementById("brand" + i) as HTMLInputElement).value; 
+        var diameter = (document.getElementById("diameter" + i) as HTMLInputElement).value;
+        if(brand ==="" || diameter ==""){
             alert("Todos los campos son obligatorios")
-        }else if(Number(diameter.value) < 0 || Number(diameter.value) > 2){
+        }else if(Number(diameter) < 0 || Number(diameter) > 2){
             alert("La medida no es compatible, error en la rueda: " + i )
         }
         else{
             contadorRuedas ++;
-    } }
+    } 
+}
 
     if(contadorRuedas == 4){
 
         const infowheel: HTMLElement = document.getElementById('infowheel') as HTMLElement
         infowheel.innerHTML = "RUEDAS:" ;
-
-        for(var i=1; i<=4; i++){
-        var brand = document.getElementById("brand" + i) as HTMLInputElement;
-        var diameter = document.getElementById("diameter" + i) as HTMLInputElement;
+        const infowheel1: HTMLElement = document.getElementById('infowheel1') as HTMLElement;
         
-        const infowheel: HTMLElement = document.getElementById('infowheel' + i) as HTMLElement
-        infowheel.innerHTML = i +" Marca: " + brand.value + " Diametro: " + diameter.value;
+        for( i=1; i<=4; i++){
+        var brand = (document.getElementById("brand" + i) as HTMLInputElement).value; 
+        var diameter = (document.getElementById("diameter" + i) as HTMLInputElement).value;
+        var wheel = new Wheel(Number(diameter),String(brand))
+        car.addWheel(wheel);
         }
-    }
-    else{
+        
+        $.each(car.wheels, function (index) {
+            car.wheels[index].brand
+            car.wheels[index].diameter;
+
+            infowheel1.insertAdjacentHTML('beforeend',"Marca: " + car.wheels[index].brand + " Diametro: " + car.wheels[index].diameter+ "</br>"); 
+        })
+       
+        
+    }else{
 
     }
    
